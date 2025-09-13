@@ -1,0 +1,550 @@
+package calculadora1;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.JFrame; // Se agregó para claridad
+import javax.swing.JButton; // Se agregó para claridad
+import javax.swing.JTextField; // Se agregó para claridad
+import java.awt.event.ActionListener; // Se agregó para claridad
+import java.awt.event.ActionEvent; // Se agregó para claridad
+
+
+/**
+ * Clase principal de la calculadora. Extiende {@link javax.swing.JFrame} para crear la ventana de la aplicación.
+ *
+ * @author [Tu Nombre]
+ * @version 1.0
+ */
+public class calculadora extends JFrame {
+
+    // Variable para el panel de fondo personalizado.
+    private fondo Fimage = new fondo();
+    
+    // Variables de la calculadora para almacenar los números y el signo de la operación.
+    public float num1;
+    public float num2;
+    public String signos;
+    
+    // Variables de la interfaz de usuario (componentes Swing).
+    private JTextField Mostrar;
+    private JButton borrar, cero, cuatro, decimal, divicion, dos, igual, multiplicacion, nueve, ocho, resta, seis, siete, sinco, suma, tres, uno;
+
+    /**
+     * Constructor de la clase calculadora.
+     * <p>
+     * Inicializa la ventana, configura el fondo, el título y la posición.
+     */
+    public calculadora() {
+        // Configura el panel de fondo como el panel de contenido de la ventana.
+        this.setContentPane(Fimage);
+        
+        // Llama al método para inicializar todos los componentes de la GUI.
+        initComponents();
+        
+        // Centra la ventana en la pantalla.
+        this.setLocationRelativeTo(null);
+        
+        // Establece el título de la ventana.
+        this.setTitle("Calculadora");
+    }
+
+    /**
+     * Este método es llamado desde el constructor para inicializar el formulario.
+     * ADVERTENCIA: No modifiques este código. El contenido de este método
+     * es siempre regenerado por el Editor de Formularios de NetBeans.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        Mostrar = new JTextField();
+        divicion = new JButton();
+        borrar = new JButton();
+        multiplicacion = new JButton();
+        resta = new JButton();
+        ocho = new JButton();
+        siete = new JButton();
+        nueve = new JButton();
+        suma = new JButton();
+        sinco = new JButton();
+        cuatro = new JButton();
+        seis = new JButton();
+        dos = new JButton();
+        uno = new JButton();
+        tres = new JButton();
+        igual = new JButton();
+        cero = new JButton();
+        decimal = new JButton();
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 153));
+
+        Mostrar.setEditable(false);
+        Mostrar.setHorizontalAlignment(JTextField.RIGHT);
+
+        divicion.setText("/");
+        divicion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                divicionActionPerformed(evt);
+            }
+        });
+
+        borrar.setText("C");
+        borrar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                borrarActionPerformed(evt);
+            }
+        });
+
+        multiplicacion.setText("X");
+        multiplicacion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                multiplicacionActionPerformed(evt);
+            }
+        });
+
+        resta.setText("-");
+        resta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                restaActionPerformed(evt);
+            }
+        });
+
+        ocho.setText("8");
+        ocho.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ochoActionPerformed(evt);
+            }
+        });
+
+        siete.setText("7");
+        siete.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                sieteActionPerformed(evt);
+            }
+        });
+
+        nueve.setText("9");
+        nueve.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                nueveActionPerformed(evt);
+            }
+        });
+
+        suma.setText("+");
+        suma.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                sumaActionPerformed(evt);
+            }
+        });
+
+        sinco.setText("5");
+        sinco.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                sincoActionPerformed(evt);
+            }
+        });
+
+        cuatro.setText("4");
+        cuatro.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cuatroActionPerformed(evt);
+            }
+        });
+
+        seis.setText("6");
+        seis.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                seisActionPerformed(evt);
+            }
+        });
+
+        dos.setText("2");
+        dos.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                dosActionPerformed(evt);
+            }
+        });
+
+        uno.setText("1");
+        uno.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                unoActionPerformed(evt);
+            }
+        });
+
+        tres.setText("3");
+        tres.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                tresActionPerformed(evt);
+            }
+        });
+
+        igual.setText("=");
+        igual.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                igualActionPerformed(evt);
+            }
+        });
+
+        cero.setText("0");
+        cero.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ceroActionPerformed(evt);
+            }
+        });
+
+        decimal.setText(".");
+        decimal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                decimalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(13, 13, 13)
+                                    .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(divicion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(multiplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(resta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(siete, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ocho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(nueve, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(suma, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(uno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(dos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(cuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(sinco, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cero, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(igual, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Mostrar)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(divicion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(multiplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ocho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(siete, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nueve, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sinco, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(suma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(uno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cero, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(igual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    // --- Métodos de Acción para los Botones ---
+
+    /**
+     * Maneja el evento cuando se presiona el botón '0'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void ceroActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "0");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '1'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void unoActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "1");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '2'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void dosActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "2");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '3'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void tresActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "3");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '4'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void cuatroActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "4");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '5'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void sincoActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "5");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '6'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void seisActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "6");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '7'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void sieteActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "7");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '8'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void ochoActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "8");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '9'.
+     *
+     * @param evt El evento de acción.
+     */
+    private void nueveActionPerformed(ActionEvent evt) {
+        this.Mostrar.setText(this.Mostrar.getText() + "9");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón 'C' (borrar).
+     * <p>
+     * Borra el último carácter del texto en la pantalla.
+     *
+     * @param evt El evento de acción.
+     */
+    private void borrarActionPerformed(ActionEvent evt) {
+        String pantalla = Mostrar.getText();
+        if (pantalla.length() > 0) {
+            // Elimina el último carácter de la cadena.
+            pantalla = pantalla.substring(0, pantalla.length() - 1);
+            Mostrar.setText(pantalla);
+        }
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '+'.
+     * <p>
+     * Almacena el primer número y el signo de la operación.
+     *
+     * @param evt El evento de acción.
+     */
+    private void sumaActionPerformed(ActionEvent evt) {
+        this.num1 = Float.parseFloat(this.Mostrar.getText());
+        this.signos = "+";
+        this.Mostrar.setText("");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '='.
+     * <p>
+     * Realiza la operación matemática pendiente y muestra el resultado.
+     *
+     * @param evt El evento de acción.
+     */
+    private void igualActionPerformed(ActionEvent evt) {
+        this.num2 = Float.parseFloat(this.Mostrar.getText());
+        
+        switch (this.signos) {
+            case "+":
+                this.Mostrar.setText(Float.toString(this.num1 + this.num2));
+                break;
+            case "-":
+                this.Mostrar.setText(Float.toString(this.num1 - this.num2));
+                break;
+            case "X":
+                this.Mostrar.setText(Float.toString(this.num1 * this.num2));
+                break;
+            case "/":
+                // Manejo de la división por cero para evitar errores.
+                if (this.num2 != 0) {
+                    this.Mostrar.setText(Float.toString(this.num1 / this.num2));
+                } else {
+                    this.Mostrar.setText("Error");
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '-'.
+     * <p>
+     * Almacena el primer número y el signo de la operación.
+     *
+     * @param evt El evento de acción.
+     */
+    private void restaActionPerformed(ActionEvent evt) {
+        this.num1 = Float.parseFloat(this.Mostrar.getText());
+        this.signos = "-";
+        this.Mostrar.setText("");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón 'X'.
+     * <p>
+     * Almacena el primer número y el signo de la operación.
+     *
+     * @param evt El evento de acción.
+     */
+    private void multiplicacionActionPerformed(ActionEvent evt) {
+        this.num1 = Float.parseFloat(this.Mostrar.getText());
+        this.signos = "X";
+        this.Mostrar.setText("");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '/'.
+     * <p>
+     * Almacena el primer número y el signo de la operación.
+     *
+     * @param evt El evento de acción.
+     */
+    private void divicionActionPerformed(ActionEvent evt) {
+        this.num1 = Float.parseFloat(this.Mostrar.getText());
+        this.signos = "/";
+        this.Mostrar.setText("");
+    }
+
+    /**
+     * Maneja el evento cuando se presiona el botón '.'.
+     * <p>
+     * Agrega un punto decimal al número en la pantalla, solo si no existe ya.
+     *
+     * @param evt El evento de acción.
+     */
+    private void decimalActionPerformed(ActionEvent evt) {
+        // Verifica si la pantalla ya contiene un punto decimal.
+        if (!this.Mostrar.getText().contains(".")) {
+            this.Mostrar.setText(this.Mostrar.getText() + ".");
+        }
+    }
+
+    // --- Método principal y Clases anidadas ---
+
+    /**
+     * El método principal (main) de la aplicación.
+     *
+     * @param args los argumentos de la línea de comandos (no utilizados).
+     */
+    public static void main(String args[]) {
+        // Utiliza EventQueue.invokeLater para asegurar que la GUI se ejecute en el hilo de eventos de Swing.
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new calculadora().setVisible(true);
+            }
+        });
+    }
+
+    /**
+     * Clase anidada para crear un panel con una imagen de fondo.
+     */
+    class fondo extends JPanel {
+
+        private Image grafic;
+
+        /**
+         * Sobrescribe el método paint para dibujar la imagen de fondo.
+         *
+         * @param g El contexto gráfico.
+         */
+        @Override
+        public void paint(Graphics g) {
+            // Carga la imagen desde la ruta de recursos.
+            grafic = new ImageIcon(getClass().getResource("/imagenes/imagen.jpg")).getImage();
+            // Dibuja la imagen para que llene el panel.
+            g.drawImage(grafic, 0, 0, getWidth(), getHeight(), this);
+            // Establece la opacidad del panel.
+            setOpaque(false);
+            // Llama al método paint de la superclase para asegurar que otros componentes se dibujen correctamente.
+            super.paint(g);
+        }
+    }
+}
